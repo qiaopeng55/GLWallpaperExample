@@ -15,6 +15,8 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		autoRotate(gl);
 		gl.glColor4f(.2f, 0f, .5f, 1f);
 		mTriangle.draw(gl);
 	}
@@ -43,5 +45,10 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	 */
 	public void release() {
 
+	}
+
+	private void autoRotate(GL10 gl) {
+		gl.glRotatef(1, 0, 1, 0);
+		gl.glRotatef(0.5f, 1, 0, 0);
 	}
 }
