@@ -24,6 +24,10 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		mTriangle = new GLTriangle();
+
+		gl.glClearDepthf(1f);
+		gl.glEnable(GL10.GL_DEPTH_TEST);
+		gl.glDepthFunc(GL10.GL_LEQUAL);
 	}
 
 	/**
